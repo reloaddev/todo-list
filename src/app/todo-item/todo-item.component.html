@@ -1,0 +1,8 @@
+<li cdkDrag class="flex text-xl m-2">
+  <mat-checkbox (click)="removeTodo()" color="primary"></mat-checkbox>
+  <input type="text"
+         [(ngModel)]="todo"
+         (input)="onTodoChange()"
+         placeholder="New Item"
+         class="flex-auto outline-1 outline-indigo-700 p-1">
+</li>
