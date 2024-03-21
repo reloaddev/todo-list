@@ -6,8 +6,7 @@
                (deleteTodoEvent)="removeItem(index)"/>
   </ul>
   <div *ngIf="(activeTodos$ | async)?.length === 0" class="flex flex-col items-center">
-    <img ngSrc="../../assets/empty-state.png" alt="" height="280"
-         width="280">
+    <img ngSrc="../../assets/empty-state.png" alt="" height="280" width="280">
     <p class="mat-subtitle-1">You are all set. Enjoy our day!</p>
   </div>
   <button (click)="addNewItem()"
