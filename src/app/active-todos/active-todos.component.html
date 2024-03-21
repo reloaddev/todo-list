@@ -1,0 +1,19 @@
+<div class="flex h-full flex-col items-center justify-between">
+  <ul cdkDropList class="w-full" (cdkDropListDropped)="dropItem($event)">
+    <todo-item *ngFor="let todo of activeTodos$ | async; index as index; trackBy: trackByIndex"
+               [todo]="todo"
+               (todoChange)="updateTodo($event, index)"
+               (deleteTodoEvent)="removeItem(index)"/>
+  </ul>
+  <div *ngIf="(activeTodos$ | async)?.length === 0" class="flex flex-col items-center">
+    <img ngSrc="../../assets/empty-state.png" alt="" height="280"
+         width="280">
+    <p class="mat-subtitle-1">You are all set. Enjoy our day!</p>
+  </div>
+  <button (click)="addNewItem()"
+          mat-fab
+          color="primary"
+          class="mb-20">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

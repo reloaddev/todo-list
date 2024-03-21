@@ -1,22 +1,18 @@
-<main class="flex flex-col h-full items-center justify-between">
-  <div class="w-full">
-    <mat-toolbar color="primary">
-      <span>TODO LIST</span>
-    </mat-toolbar>
-    <div class="h-2.5"></div>
-    <ul cdkDropList class="w-full" (cdkDropListDropped)="dropItem($event)">
-      <todo-item *ngFor="let todo of todos; index as index; trackBy: trackByIndex"
-                 [todo]="todo"
-                 (todoChange)="updateTodo($event, index)"
-                 (deleteTodoEvent)="removeItem(index)"/>
-    </ul>
+<main class="flex flex-col h-full w-full items-center justify-between">
+  <div class="w-full h-full">
+    <toolbar></toolbar>
+    <mat-tab-group class="h-full">
+
+      <mat-tab label="ACTIVE">
+        <active-todos></active-todos>
+      </mat-tab>
+
+      <mat-tab label="DONE">
+        <done-todos></done-todos>
+      </mat-tab>
+
+    </mat-tab-group>
   </div>
-  <button (click)="addNewItem()"
-          mat-fab
-          color="primary"
-          class="m-10">
-    <mat-icon>add</mat-icon>
-  </button>
 </main>
 
 <router-outlet/>

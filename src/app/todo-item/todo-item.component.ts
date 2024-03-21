@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 export class TodoItemComponent {
 
   @Input() todo!: string;
+  @Input() disabled = false;
   @Output() todoChange = new EventEmitter<string>();
   @Output() deleteTodoEvent = new EventEmitter<void>();
 
